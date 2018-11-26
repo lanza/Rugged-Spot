@@ -80,6 +80,7 @@ class SearchViewController: UIViewController {
                 self.present(alertController, animated: true, completion: nil)
                 return
         }
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         textFieldResignFirstResponders()
         // League defaults to Mens unless selected otherwise
         var league = "Mens"
@@ -90,11 +91,13 @@ class SearchViewController: UIViewController {
         // Searches Firebase for the selected parameters.  If search results are found, performs segue, else displays an alert telling the user that no tournaments met the search criteria.
         TournamentController.shared.fetchTournamentFor(state: state, division: division, style: style, league: league) { (success) in
             if success {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.performSegue(withIdentifier: "toResultsController", sender: self)
             } else {
                 let alertController = UIAlertController(title: "No Tournaments Found", message: "No tournament was found meeting those criterias", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
                 self.present(alertController, animated: true, completion: nil)
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
         }
     }
