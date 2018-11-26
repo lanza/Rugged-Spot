@@ -16,7 +16,7 @@
 		3CF1F19A2190E40100C8D561 /* Tournament.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF1F1992190E40100C8D561 /* Tournament.swift */; };
 		3CF1F19C2190E55800C8D561 /* TournamentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF1F19B2190E55800C8D561 /* TournamentController.swift */; };
 		3CF1F19F21916E8700C8D561 /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF1F19E21916E8700C8D561 /* Results.storyboard */; };
-		3CF1F1A121916FE400C8D561 /* ResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF1F1A021916FE400C8D561 /* ResultTableViewController.swift */; };
+		3CF1F1A121916FE400C8D561 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF1F1A021916FE400C8D561 /* ResultViewController.swift */; };
 		3CF1F1A52191730C00C8D561 /* TournamentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF1F1A42191730C00C8D561 /* TournamentTableViewCell.swift */; };
 		3CFCF2F62190A03700DFF9FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCF2F52190A03700DFF9FD /* AppDelegate.swift */; };
 		3CFCF2FB2190A03700DFF9FD /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFCF2F92190A03700DFF9FD /* Search.storyboard */; };
@@ -34,7 +34,7 @@
 		3CF1F1992190E40100C8D561 /* Tournament.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tournament.swift; sourceTree = "<group>"; };
 		3CF1F19B2190E55800C8D561 /* TournamentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentController.swift; sourceTree = "<group>"; };
 		3CF1F19E21916E8700C8D561 /* Results.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Results.storyboard; sourceTree = "<group>"; };
-		3CF1F1A021916FE400C8D561 /* ResultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewController.swift; sourceTree = "<group>"; };
+		3CF1F1A021916FE400C8D561 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		3CF1F1A42191730C00C8D561 /* TournamentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentTableViewCell.swift; sourceTree = "<group>"; };
 		3CFCF2F22190A03700DFF9FD /* Rugged Spot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rugged Spot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CFCF2F52190A03700DFF9FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -169,7 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				3CFCF3092190A3C800DFF9FD /* SearchViewController.swift */,
-				3CF1F1A021916FE400C8D561 /* ResultTableViewController.swift */,
+				3CF1F1A021916FE400C8D561 /* ResultViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -300,7 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CF1F1A121916FE400C8D561 /* ResultTableViewController.swift in Sources */,
+				3CF1F1A121916FE400C8D561 /* ResultViewController.swift in Sources */,
 				3CF1F19A2190E40100C8D561 /* Tournament.swift in Sources */,
 				3C8E8E6A2190A5AC00C26EA7 /* State.swift in Sources */,
 				3CA3A92221AA364E00CA8662 /* UITextField+Extensions.swift in Sources */,

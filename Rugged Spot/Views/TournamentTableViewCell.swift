@@ -9,6 +9,8 @@
 import UIKit
 
 class TournamentTableViewCell: UITableViewCell {
+    
+    var url: URL?
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
@@ -16,6 +18,7 @@ class TournamentTableViewCell: UITableViewCell {
     @IBOutlet weak var styleLabel: UILabel!
     @IBOutlet weak var leagueLabel: UILabel!
     @IBOutlet weak var websiteButton: UIButton!
+    weak var delegate: TournamentTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,4 +26,11 @@ class TournamentTableViewCell: UITableViewCell {
         websiteButton.clipsToBounds = true
     }
     
+    @IBAction func websiteButtonTapped(_ sender: UIButton) {
+        delegate?.websiteButtonTapped(self)
+    }
+}
+
+protocol TournamentTableViewCellDelegate: class {
+    func websiteButtonTapped(_ sender: TournamentTableViewCell)
 }

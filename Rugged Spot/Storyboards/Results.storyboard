@@ -36,6 +36,9 @@
                                                     <state key="normal" title="Tap to View Website">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="websiteButtonTapped:" destination="flv-73-VgT" eventType="touchUpInside" id="UFN-Ee-2oJ"/>
+                                                    </connections>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="LL3-KB-n0k">
                                                     <rect key="frame" x="23" y="19" width="159" height="212"/>
