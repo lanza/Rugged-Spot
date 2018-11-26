@@ -1,5 +1,5 @@
 //
-//  ResultTableViewController.swift
+//  ResultViewController.swift
 //  Rugged Spot
 //
 //  Created by Eric Lanza on 11/6/18.
@@ -40,6 +40,8 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
         
         let tournament = TournamentController.shared.tournaments[indexPath.row]
         
+        cell.delegate = self
+        cell.url = URL(string: tournament.url) ?? nil
         cell.nameLabel.text = tournament.name
         cell.cityLabel.text = tournament.city
         cell.divisionLabel.text = division
@@ -47,5 +49,21 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
         cell.styleLabel.text = style
         
         return cell
+    }
+}
+
+extension ResultViewController: TournamentTableViewCellDelegate {
+    func websiteButtonTapped(_ sender: TournamentTableViewCell) {
+        guard let url = sender.url else {
+            
+            // If the url is invalid, display alert telling the user.
+            let alertController = UIAlertController(title: "Website Invalid", message: "The tournament's website seems to be down, please try again later.", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+            
+            return
+        }
+        //Open the website in safari
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
