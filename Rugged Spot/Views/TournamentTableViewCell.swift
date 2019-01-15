@@ -10,12 +10,12 @@ import UIKit
 
 class TournamentTableViewCell: UITableViewCell {
 
-    var tournament: Tournament? 
+    var tournament: Tournament?
 
     @IBOutlet weak var teamLogoImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         teamLogoImageView.clipsToBounds = true

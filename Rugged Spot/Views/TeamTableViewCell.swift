@@ -16,13 +16,13 @@ class TeamTableViewCell: UITableViewCell {
         websiteButton.layer.cornerRadius = 12
         websiteButton.layer.masksToBounds = true
     }
-    
+
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var callButton: UIButton!
     @IBOutlet weak var websiteButton: UIButton!
-    
+
     weak var delegate: TeamTableViewCellDelegate?
-    
+
     var team: Team? {
         didSet {
             if team?.phoneNumber == nil || team?.phoneNumber?.count == 0 {
@@ -36,7 +36,7 @@ class TeamTableViewCell: UITableViewCell {
                     self.callButton.backgroundColor = UIColor(named: "mainColor")
                 }
             }
-            
+
             // Hides the Website button if the user did not enter a valid website for the team
             if team?.url == nil || team?.url?.count == 0 {
                 DispatchQueue.main.async {
@@ -49,16 +49,16 @@ class TeamTableViewCell: UITableViewCell {
                     self.websiteButton.backgroundColor = UIColor(named: "mainColor")
                 }
             }
-            
+
             nameLabel.text = team?.name ?? "Missing Team Name"
         }
     }
-    
+
     @IBAction func websiteButtonTapped(_ sender: UIButton) {
         delegate?.websiteButtonTapped(self)
-        
+
     }
-    
+
     @IBAction func callButtonTapped(_ sender: UIButton) {
         delegate?.callButtonTapped(self)
     }
