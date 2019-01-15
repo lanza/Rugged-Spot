@@ -16,7 +16,7 @@ class TeamTableViewCell: UITableViewCell {
         websiteButton.layer.cornerRadius = 12
         websiteButton.layer.masksToBounds = true
     }
-
+  
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var callButton: UIButton!
     @IBOutlet weak var websiteButton: UIButton!
@@ -49,7 +49,6 @@ class TeamTableViewCell: UITableViewCell {
                     self.websiteButton.backgroundColor = UIColor(named: "mainColor")
                 }
             }
-
             nameLabel.text = team?.name ?? "Missing Team Name"
         }
     }

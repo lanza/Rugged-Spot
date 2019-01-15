@@ -27,7 +27,7 @@ class TeamDetailViewController: UIViewController {
         super.viewDidLoad()
         setUpViews()
     }
-
+  
     // MARK: - IBActions
 
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
@@ -66,7 +66,6 @@ class TeamDetailViewController: UIViewController {
             websiteTextField.text = team.url
             self.title = team.name
         } else {
-
             // Sets the title of the navigation item if the user is adding a new team
             self.title = "Add Your Team"
         }
