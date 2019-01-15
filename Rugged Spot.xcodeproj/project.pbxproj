@@ -16,8 +16,9 @@
 		3C241A0121BF25DC00D35E67 /* TeamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C241A0021BF25DC00D35E67 /* TeamTableViewCell.swift */; };
 		3C241A0321BF266B00D35E67 /* TeamDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C241A0221BF266B00D35E67 /* TeamDetail.storyboard */; };
 		3C241A0521BF284600D35E67 /* TeamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C241A0421BF284600D35E67 /* TeamDetailViewController.swift */; };
-		3C2A9D5F21ED7C2D00B72967 /* FirebaseImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A9D5E21ED7C2D00B72967 /* FirebaseImageController.swift */; };
 		3C2A9D6121EE462300B72967 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A9D6021EE462300B72967 /* String+Extension.swift */; };
+		3C2A9D6321EE7C1100B72967 /* TournamentDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2A9D6221EE7C1100B72967 /* TournamentDetail.storyboard */; };
+		3C2A9D6521EE7F2000B72967 /* TournamentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2A9D6421EE7F2000B72967 /* TournamentDetailViewController.swift */; };
 		3C745BD421BF201E008FC97E /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C745BD321BF201E008FC97E /* TabBar.storyboard */; };
 		3C745BD621BF238F008FC97E /* MyTeams.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C745BD521BF238F008FC97E /* MyTeams.storyboard */; };
 		3C745BD821BF244D008FC97E /* TeamsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C745BD721BF244D008FC97E /* TeamsListViewController.swift */; };
@@ -47,8 +48,9 @@
 		3C241A0021BF25DC00D35E67 /* TeamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTableViewCell.swift; sourceTree = "<group>"; };
 		3C241A0221BF266B00D35E67 /* TeamDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TeamDetail.storyboard; sourceTree = "<group>"; };
 		3C241A0421BF284600D35E67 /* TeamDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailViewController.swift; sourceTree = "<group>"; };
-		3C2A9D5E21ED7C2D00B72967 /* FirebaseImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseImageController.swift; sourceTree = "<group>"; };
 		3C2A9D6021EE462300B72967 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		3C2A9D6221EE7C1100B72967 /* TournamentDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TournamentDetail.storyboard; sourceTree = "<group>"; };
+		3C2A9D6421EE7F2000B72967 /* TournamentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentDetailViewController.swift; sourceTree = "<group>"; };
 		3C745BD321BF201E008FC97E /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		3C745BD521BF238F008FC97E /* MyTeams.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyTeams.storyboard; sourceTree = "<group>"; };
 		3C745BD721BF244D008FC97E /* TeamsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsListViewController.swift; sourceTree = "<group>"; };
@@ -115,7 +117,6 @@
 				3CA3A92121AA364E00CA8662 /* UITextField+Extensions.swift */,
 				3C2A9D6021EE462300B72967 /* String+Extension.swift */,
 				3C95160C21ED4CBE00C7491D /* ShadowView.swift */,
-				3C2A9D5E21ED7C2D00B72967 /* FirebaseImageController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -135,6 +136,7 @@
 				3C745BD321BF201E008FC97E /* TabBar.storyboard */,
 				3CFCF2F92190A03700DFF9FD /* Search.storyboard */,
 				3CF1F19E21916E8700C8D561 /* Results.storyboard */,
+				3C2A9D6221EE7C1100B72967 /* TournamentDetail.storyboard */,
 				3C745BD521BF238F008FC97E /* MyTeams.storyboard */,
 				3C241A0221BF266B00D35E67 /* TeamDetail.storyboard */,
 			);
@@ -207,6 +209,7 @@
 			children = (
 				3CFCF3092190A3C800DFF9FD /* SearchViewController.swift */,
 				3CF1F1A021916FE400C8D561 /* ResultViewController.swift */,
+				3C2A9D6421EE7F2000B72967 /* TournamentDetailViewController.swift */,
 				3C745BD721BF244D008FC97E /* TeamsListViewController.swift */,
 				3C241A0421BF284600D35E67 /* TeamDetailViewController.swift */,
 			);
@@ -283,6 +286,7 @@
 			files = (
 				3CFCF3002190A03B00DFF9FD /* LaunchScreen.storyboard in Resources */,
 				3CF1F19F21916E8700C8D561 /* Results.storyboard in Resources */,
+				3C2A9D6321EE7C1100B72967 /* TournamentDetail.storyboard in Resources */,
 				3C06EF822190B4A800CBDD50 /* GoogleService-Info.plist in Resources */,
 				3CFCF2FD2190A03B00DFF9FD /* Assets.xcassets in Resources */,
 				3C745BD421BF201E008FC97E /* TabBar.storyboard in Resources */,
@@ -346,11 +350,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C2A9D6521EE7F2000B72967 /* TournamentDetailViewController.swift in Sources */,
 				3C95160D21ED4CBE00C7491D /* ShadowView.swift in Sources */,
 				3CF1F1A121916FE400C8D561 /* ResultViewController.swift in Sources */,
 				3CF1F19A2190E40100C8D561 /* Tournament.swift in Sources */,
 				3C8E8E6A2190A5AC00C26EA7 /* State.swift in Sources */,
-				3C2A9D5F21ED7C2D00B72967 /* FirebaseImageController.swift in Sources */,
 				3CA3A92221AA364E00CA8662 /* UITextField+Extensions.swift in Sources */,
 				3CFCF30A2190A3C800DFF9FD /* SearchViewController.swift in Sources */,
 				3CF1F1A52191730C00C8D561 /* TournamentTableViewCell.swift in Sources */,

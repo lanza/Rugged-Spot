@@ -91,6 +91,7 @@
                                             <outlet property="cityLabel" destination="U8R-0q-eHn" id="GyP-FL-Ybj"/>
                                             <outlet property="nameLabel" destination="6cW-uM-ai3" id="Aid-7s-y8Q"/>
                                             <outlet property="teamLogoImageView" destination="Qq1-GC-eti" id="GhM-jo-BF3"/>
+                                            <segue destination="JS7-82-9Ji" kind="show" identifier="tournamentDetailSegue" id="6Wz-IB-siw"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -116,6 +117,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7MR-Va-wVp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="269.60000000000002" y="87.706146926536732"/>
+        </scene>
+        <!--TournamentDetail-->
+        <scene sceneID="8Jc-49-2zN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TournamentDetail" id="JS7-82-9Ji" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WPf-aG-Ald" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="930" y="87"/>
         </scene>
     </scenes>
     <resources>

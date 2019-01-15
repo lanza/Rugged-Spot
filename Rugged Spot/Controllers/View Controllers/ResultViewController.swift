@@ -32,7 +32,24 @@ class ResultViewController: UIViewController {
         print(storageRef)
         print(storageRef.child("\(state)"))
     }
-
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "tournamentDetailSegue" {
+            guard let destionationVC = segue.destination as? TournamentDetailViewController,
+            let index = tournamentTableView.indexPathForSelectedRow else { return }
+            let tournament = TournamentController.shared.tournaments[index.section]
+            
+            destionationVC.tournament = tournament
+            destionationVC.state = state
+            destionationVC.style = style
+            destionationVC.division = division
+            destionationVC.league = league
+            if let sender = sender as? TournamentTableViewCell {
+                destionationVC.logoImage = sender.teamLogoImageView.image ?? UIImage(named: "tournamentPlaceholder")!
+            }
+        }
+    }
 }
 
 extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
