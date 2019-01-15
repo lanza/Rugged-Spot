@@ -35,6 +35,11 @@ class SearchViewController: UIViewController {
         setUpColors()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        setMultilineTitle()
+    }
+    
     // MARK: - Helper Methods
     
     func setUpViews() {
@@ -49,7 +54,7 @@ class SearchViewController: UIViewController {
         styleTextField.addDoneButtonOnKeyboard()
         
         // Makes the search button have rounded edges
-        searchButton.layer.cornerRadius = 12
+        searchButton.layer.cornerRadius = 5
         searchButton.clipsToBounds = true
     }
     
@@ -58,6 +63,48 @@ class SearchViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor.init(named: "mainColor")
         leagueSegmentedControl.tintColor = UIColor.init(named: "mainColor")
         searchButton.tintColor = UIColor.init(named: "mainColor")
+    }
+    
+    func setMultilineTitle() {
+        
+        // Adjusts the size of the title's font based on screen size of user's device.
+        
+        // Default font size
+        var fontSize: CGFloat = 40
+        if self.view.frame.height <= 650 {
+            // Font size for iPhone 5s, SE, and smaller
+            fontSize = CGFloat(25)
+        } else if self.view.frame.height <= 760 {
+            // Font size for iPhone 6, 6s, 7, & 8
+            fontSize = CGFloat(30)
+        }
+        
+        // Sets the naviation item's title to hopefully fit the longer title onto one line and not have truncated characters. As a backup, this functions will cause the title to word wrap across multiple lines.
+        // If the title changes to something shorter, this function is un-needed
+        navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
+        
+        self.title = "Search For Tournaments"
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: fontSize)]
+        
+        var count = 0
+        for item in(self.navigationController?.navigationBar.subviews)! {
+            for sub in item.subviews{
+                if sub is UILabel{
+                    if count == 1 {
+                        break;
+                    }
+                    let titleLab :UILabel = sub as! UILabel
+                    titleLab.numberOfLines = 0
+                    titleLab.text = self.title
+                    titleLab.lineBreakMode = .byWordWrapping
+                    count = count + 1
+                }
+            }
+            
+        }
+        self.navigationController?.navigationBar.layoutSubviews()
+        self.navigationController?.navigationBar.layoutIfNeeded()
     }
     
     // Forces whichever text field is open to resignFirstResponder()

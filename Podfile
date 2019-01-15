@@ -8,4 +8,5 @@ target 'Rugged Spot' do
   # Pods for Rugged Spot
 pod 'Firebase/Core'
 pod 'Firebase/Database'
+pod 'FirebaseUI/Storage'
 end

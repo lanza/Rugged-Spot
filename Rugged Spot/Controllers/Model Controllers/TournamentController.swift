@@ -42,6 +42,9 @@ class TournamentController {
     
     func seperateCityFrom(string: String) -> [String] {
         let firstColon = string.firstIndex(of: ":")
+        if firstColon == nil {
+            return [string, string]
+        }
         let city = String(string[..<firstColon!])
         let name = String(string[firstColon!...]).trimmingCharacters(in: .init(charactersIn: ":"))
         return [name, city]
