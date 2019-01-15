@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseStorage
+import SDWebImage
+import FirebaseUI
 
 class ResultViewController: UIViewController {
     // MARK: - Properties
@@ -16,54 +20,66 @@ class ResultViewController: UIViewController {
     var style: String = ""
     var league: String = ""
     
+    let storageRef = Storage.storage().reference()
+    let placeholderImage = UIImage(named: "tournamentPlaceholder")
     // MARK: - IBOutlets
     
     @IBOutlet weak var tournamentTableView: UITableView!
     
     // MARK: - Life Cycle Methods
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.title = state
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print(storageRef)
+        print(storageRef.child("\(state)"))
     }
+
 }
 
 extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
     // MARK: - Table view data source
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return TournamentController.shared.tournaments.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 8
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 8
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 82
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 82
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "tournamentCell", for: indexPath) as? TournamentTableViewCell else { return UITableViewCell() }
         
-        let tournament = TournamentController.shared.tournaments[indexPath.row]
+        let tournament = TournamentController.shared.tournaments[indexPath.section]
         
-        cell.delegate = self
-        cell.url = URL(string: tournament.url) ?? nil
+        cell.tournament = tournament
+        
         cell.nameLabel.text = tournament.name
-        cell.cityLabel.text = tournament.city
-        cell.divisionLabel.text = division
-        cell.leagueLabel.text = league
-        cell.styleLabel.text = style
+        cell.cityLabel.text = tournament.city + ", \(state)"
         
+        let reference = storageRef.child("\(state)/\(tournament.name).png")
+        cell.teamLogoImageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
         return cell
-    }
-}
-
-extension ResultViewController: TournamentTableViewCellDelegate {
-    func websiteButtonTapped(_ sender: TournamentTableViewCell) {
-        guard let url = sender.url else {
-            
-            // If the url is invalid, display alert telling the user.
-            let alertController = UIAlertController(title: "Website Invalid", message: "The tournament's website seems to be down, please try again later.", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-            self.present(alertController, animated: true, completion: nil)
-            
-            return
-        }
-        //Open the website in safari
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }

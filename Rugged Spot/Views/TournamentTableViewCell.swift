@@ -9,28 +9,15 @@
 import UIKit
 
 class TournamentTableViewCell: UITableViewCell {
-    
-    var url: URL?
 
+    var tournament: Tournament? 
+
+    @IBOutlet weak var teamLogoImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var divisionLabel: UILabel!
-    @IBOutlet weak var styleLabel: UILabel!
-    @IBOutlet weak var leagueLabel: UILabel!
-    @IBOutlet weak var websiteButton: UIButton!
-    weak var delegate: TournamentTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        websiteButton.layer.cornerRadius = 12
-        websiteButton.clipsToBounds = true
+        teamLogoImageView.clipsToBounds = true
     }
-    
-    @IBAction func websiteButtonTapped(_ sender: UIButton) {
-        delegate?.websiteButtonTapped(self)
-    }
-}
-
-protocol TournamentTableViewCellDelegate: class {
-    func websiteButtonTapped(_ sender: TournamentTableViewCell)
 }
