@@ -9,49 +9,32 @@
 import UIKit
 
 class TeamDetailViewController: UIViewController {
-    
+
     // MARK: - Properties
-    
+
     var team: Team?
-    
+
     // MARK: - IBOutlets
-    
+
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var websiteTextField: UITextField!
     @IBOutlet weak var defaultView: UIView!
-    
+
     // MARK: - Life Cycle Methods
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
     }
-    
+  
     // MARK: - IBActions
-    
+
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let name = nameTextField.text, !name.isEmpty else { return }
-        
-        // Removes any hypens in the phone number text field
-//        let phoneNumber = phoneNumberTextField.text?.split(separator: "-")
-//
-//        // Makes the phone number array from previous line an optional string
-//        let phoneNumberAsString = phoneNumber?.joined(separator: "")
-        
-        // First checks to see if the text pulled from the phone number text field is empty. If not empty, makes sure the phone number is exactly 10 digits long so button works for tap to call function in list view
-        
-//        if phoneNumberAsString?.count != 0 && phoneNumberAsString?.count != 10 {
-//            let phoneNumberAlertController = UIAlertController(title: "Phone number must have exactly 10 digits", message: "Do not include any hyphens, parentheses, or periods", preferredStyle: .alert)
-//
-//            phoneNumberAlertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-//
-//            self.present(phoneNumberAlertController, animated: true, completion: nil)
-//            return
-//        }
-        
+
         var website = websiteTextField.text
-        
+
         if website?.prefix(11) == "http://www." {
             website?.insert("s", at: String.Index(encodedOffset: 4))
         } else if website?.prefix(4) == "www." {
@@ -74,7 +57,7 @@ class TeamDetailViewController: UIViewController {
 
         self.navigationController?.popViewController(animated: true)
     }
-    
+
     func setUpViews() {
         // Sets the views up to shows a teams information if the user is editing an exisiting team
         if let team = team {
@@ -83,11 +66,10 @@ class TeamDetailViewController: UIViewController {
             websiteTextField.text = team.url
             self.title = team.name
         } else {
-            
             // Sets the title of the navigation item if the user is adding a new team
             self.title = "Add Your Team"
         }
-        
+
         // Adds done button to each text field's keyboard to resign first responder
         nameTextField.addDoneButtonOnKeyboard()
         phoneNumberTextField.addDoneButtonOnKeyboard()

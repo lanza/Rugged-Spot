@@ -11,13 +11,13 @@ import Firebase
 import FirebaseDatabase
 
 class SearchViewController: UIViewController {
-    
+
     // MARK: - Properties
-    
+
     var ref: DatabaseReference! = Database.database().reference()
-    
+
     // MARK: - IBOutlets
-    
+
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var divisionTextField: UITextField!
     @IBOutlet weak var styleTextField: UITextField!
@@ -26,101 +26,54 @@ class SearchViewController: UIViewController {
     @IBOutlet var divisionPickerView: UIPickerView!
     @IBOutlet var stylePickerView: UIPickerView!
     @IBOutlet weak var searchButton: UIButton!
-    
+
     // MARK: - Life Cycle Methods
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
         setUpColors()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        setMultilineTitle()
-    }
-    
+
     // MARK: - Helper Methods
-    
+
     func setUpViews() {
         // Sets input view for the three text fields to their respective UIPickerView
         stateTextField.inputView = statePickerView
         divisionTextField.inputView = divisionPickerView
         styleTextField.inputView = stylePickerView
-        
+
         //Adds a done button to each textfield keyboard to resign first responder
-        stateTextField.addDoneButtonOnKeyboard()
-        divisionTextField.addDoneButtonOnKeyboard()
+        stateTextField.addNextButtonOnKeyboard()
+        divisionTextField.addNextButtonOnKeyboard()
         styleTextField.addDoneButtonOnKeyboard()
-        
+
         // Makes the search button have rounded edges
         searchButton.layer.cornerRadius = 5
         searchButton.clipsToBounds = true
     }
-    
+
     // Sets colors for navBar, search button and segemented control to whatever color is named "mainColor" in the assets folder
     func setUpColors() {
         self.navigationController?.navigationBar.barTintColor = UIColor.init(named: "mainColor")
         leagueSegmentedControl.tintColor = UIColor.init(named: "mainColor")
         searchButton.tintColor = UIColor.init(named: "mainColor")
     }
-    
-    func setMultilineTitle() {
-        
-        // Adjusts the size of the title's font based on screen size of user's device.
-        
-        // Default font size
-        var fontSize: CGFloat = 40
-        if self.view.frame.height <= 650 {
-            // Font size for iPhone 5s, SE, and smaller
-            fontSize = CGFloat(25)
-        } else if self.view.frame.height <= 760 {
-            // Font size for iPhone 6, 6s, 7, & 8
-            fontSize = CGFloat(30)
-        }
-        
-        // Sets the naviation item's title to hopefully fit the longer title onto one line and not have truncated characters. As a backup, this functions will cause the title to word wrap across multiple lines.
-        // If the title changes to something shorter, this function is un-needed
-        navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
-        
-        self.title = "Search For Tournaments"
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: fontSize)]
-        
-        var count = 0
-        for item in(self.navigationController?.navigationBar.subviews)! {
-            for sub in item.subviews{
-                if sub is UILabel{
-                    if count == 1 {
-                        break;
-                    }
-                    let titleLab :UILabel = sub as! UILabel
-                    titleLab.numberOfLines = 0
-                    titleLab.text = self.title
-                    titleLab.lineBreakMode = .byWordWrapping
-                    count = count + 1
-                }
-            }
-            
-        }
-        self.navigationController?.navigationBar.layoutSubviews()
-        self.navigationController?.navigationBar.layoutIfNeeded()
-    }
-    
+
     // Forces whichever text field is open to resignFirstResponder()
     func textFieldResignFirstResponders() {
         stateTextField.resignFirstResponder()
         styleTextField.resignFirstResponder()
         divisionTextField.resignFirstResponder()
     }
-    
+
     // MARK: - IBActions
-    
+
     @IBAction func searchButtonTapped(_ sender: Any) {
         guard let state = stateTextField.text, !state.isEmpty,
             let division = divisionTextField.text, !division.isEmpty,
             let style = styleTextField.text, !style.isEmpty else {
-                
+
                 // Display missing selection alert if one of the text fields is empty
                 let alertController = UIAlertController(title: "Please make sure all fields are filled out", message: nil, preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
@@ -134,7 +87,7 @@ class SearchViewController: UIViewController {
         if leagueSegmentedControl.selectedSegmentIndex == 1 {
             league = "Womens"
         }
-        
+
         // Searches Firebase for the selected parameters.  If search results are found, performs segue, else displays an alert telling the user that no tournaments met the search criteria.
         TournamentController.shared.fetchTournamentFor(state: state, division: division, style: style, league: league) { (success) in
             if success {
@@ -148,7 +101,7 @@ class SearchViewController: UIViewController {
             }
         }
     }
-    
+
     // MARK: - Navigation
     //Sends the state, style, division, and league information to next viewcontroller to populate each cell
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -167,14 +120,14 @@ class SearchViewController: UIViewController {
 }
 
 extension SearchViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    
+
     // MARK: - UIPickerView Data Source Methods
-    
+
     //Sets the picker to only have one component to select from
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+
     // Sets how many rows should be in each picker
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch pickerView {
@@ -188,9 +141,9 @@ extension SearchViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             return 0
         }
     }
-    
+
     // MARK: - UIPickerView Delegate Methods
-    
+
     // Displays the names for each row of the different pickers
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch pickerView {
@@ -204,7 +157,7 @@ extension SearchViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             return ""
         }
     }
-    
+
     // Updates the text field to display the correct index from each array
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch pickerView {
@@ -233,6 +186,16 @@ extension SearchViewController: UITextFieldDelegate {
             styleTextField.text = Style.styles[stylePickerView.selectedRow(inComponent: 0)]
         default:
             return
+        }
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == stateTextField {
+            divisionTextField.becomeFirstResponder()
+        }
+
+        if textField == divisionTextField {
+            styleTextField.becomeFirstResponder()
         }
     }
 }

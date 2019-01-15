@@ -11,18 +11,18 @@ import Firebase
 import FirebaseDatabase
 
 class TournamentController {
-    
+
     // MARK: - Shared Instance
-    
+
     static let shared = TournamentController()
-    
+
     // MARK: - Properties
-    
+
     var tournaments: [Tournament] = []
     var ref: DatabaseReference = Database.database().reference()
-    
+
     // MARK: - Firebase Methods
-    
+
     func fetchTournamentFor(state: String, division: String, style: String,
                             league: String, completion: @escaping (Bool) -> Void) {
         self.tournaments = []
@@ -39,7 +39,7 @@ class TournamentController {
             }
         }
     }
-    
+
     func seperateCityFrom(string: String) -> [String] {
         let firstColon = string.firstIndex(of: ":")
         if firstColon == nil {

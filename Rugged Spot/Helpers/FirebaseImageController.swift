@@ -11,11 +11,4 @@ import Firebase
 import FirebaseStorage
 
 class FirebaseImageController {
-    
-    let storageRef = Storage.storage().reference()
-    
-    func fetchImageFor(tournament: Tournament, completion: @escaping (UIImage?) -> Void) {
-        
-    }
-    
 }
