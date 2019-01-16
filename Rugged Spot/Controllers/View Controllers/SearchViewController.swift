@@ -47,6 +47,10 @@ class SearchViewController: UIViewController {
         stateTextField.addNextButtonOnKeyboard()
         divisionTextField.addNextButtonOnKeyboard()
         styleTextField.addDoneButtonOnKeyboard()
+        
+        // Make the font of the SegmentedControl match the rest of the app's font
+        let font = UIFont(name: "Avenir Book", size: 18)
+        leagueSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font as Any], for: .normal)
 
         // Makes the search button have rounded edges
         searchButton.layer.cornerRadius = 5
@@ -81,6 +85,7 @@ class SearchViewController: UIViewController {
                 return
         }
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        searchButton.isEnabled = false
         textFieldResignFirstResponders()
         // League defaults to Mens unless selected otherwise
         var league = "Mens"
@@ -92,11 +97,13 @@ class SearchViewController: UIViewController {
         TournamentController.shared.fetchTournamentFor(state: state, division: division, style: style, league: league) { (success) in
             if success {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.searchButton.isEnabled = true
                 self.performSegue(withIdentifier: "toResultsController", sender: self)
             } else {
                 let alertController = UIAlertController(title: "No Tournaments Found", message: "No tournament was found meeting those criterias", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
                 self.present(alertController, animated: true, completion: nil)
+                self.searchButton.isEnabled = true
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
         }
@@ -190,11 +197,11 @@ extension SearchViewController: UITextFieldDelegate {
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == stateTextField {
+        if textField == stateTextField && divisionTextField.text == "" {
             divisionTextField.becomeFirstResponder()
         }
 
-        if textField == divisionTextField {
+        if textField == divisionTextField && styleTextField.text == "" {
             styleTextField.becomeFirstResponder()
         }
     }

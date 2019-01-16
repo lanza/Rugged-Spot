@@ -10,5 +10,5 @@ import Foundation
 
 struct Division {
     static let divisions = ["Premier", "Club", "Open", "Social",
-                            "U20", "High School", "Over 35", "Old Boys"]
+                            "U20", "High School", "College", "Over 35", "Old Boys"]
 }

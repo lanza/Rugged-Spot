@@ -9,12 +9,25 @@
 import UIKit
 
 class TeamTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var shadowView: ShadowView!
+    @IBOutlet weak var whiteView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        callButton.layer.cornerRadius = 12
+        setUpViews()
+    }
+    
+    func setUpViews() {
+        callButton.layer.cornerRadius = 5
         callButton.layer.masksToBounds = true
-        websiteButton.layer.cornerRadius = 12
+        websiteButton.layer.cornerRadius = 5
         websiteButton.layer.masksToBounds = true
+        whiteView.layer.cornerRadius = 5
+        whiteView.layer.masksToBounds = true
+        shadowView.layer.cornerRadius = 5
+        
+        
     }
   
     @IBOutlet weak var nameLabel: UILabel!

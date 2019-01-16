@@ -133,6 +133,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="51" id="nu5-8a-v6d"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                         <inset key="contentEdgeInsets" minX="32" minY="8" maxX="32" maxY="8"/>
                                         <state key="normal" title="Search">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

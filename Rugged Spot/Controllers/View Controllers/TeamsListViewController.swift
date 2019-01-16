@@ -12,6 +12,7 @@ class TeamsListViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addTeamButton: UIButton!
     @IBOutlet weak var defaultView: UIView!
     @IBOutlet weak var defaultViewHiddenConstraint: NSLayoutConstraint!
 
@@ -36,6 +37,8 @@ class TeamsListViewController: UIViewController {
         }
         // Sets the navigation bar to the color named "mainColor"
         self.navigationController?.navigationBar.barTintColor = UIColor.init(named: "mainColor")
+        addTeamButton.layer.cornerRadius = 5
+        addTeamButton.layer.masksToBounds = true
     }
 
     // Animates the default view back top of the main view if the user deletes all their saved teams

@@ -24,6 +24,7 @@ class TournamentDetailViewController: UIViewController {
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var stateLabel: UILabel!
     @IBOutlet weak var divisionLabel: UILabel!
     @IBOutlet weak var styleLabel: UILabel!
     @IBOutlet weak var leagueLabel: UILabel!
@@ -36,6 +37,7 @@ class TournamentDetailViewController: UIViewController {
         setUpViews()
     }
     
+    // Sets the views for each UIelement inside of the view controller
     func setUpViews() {
         websiteButton.layer.cornerRadius = 5
         websiteButton.layer.masksToBounds = true
@@ -43,12 +45,14 @@ class TournamentDetailViewController: UIViewController {
         guard let tournament = tournament else { return }
         nameLabel.text = tournament.name
         cityLabel.text = "City: \(tournament.city)"
+        stateLabel.text = "State: \(state)"
         divisionLabel.text = "Division: \(division)"
         styleLabel.text = "Style: \(style)"
         leagueLabel.text = "League: \(league)"
         logoImageView.image = logoImage
     }
     
+    // Opens whatever the tournaments website is when the "Visit Website" button is tapped
     @IBAction func websiteButtonTapped(_ sender: UIButton) {
         if let urlString = tournament?.url, let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
             if #available(iOS 10, *) {

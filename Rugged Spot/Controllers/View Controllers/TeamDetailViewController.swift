@@ -20,7 +20,8 @@ class TeamDetailViewController: UIViewController {
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var websiteTextField: UITextField!
     @IBOutlet weak var defaultView: UIView!
-
+    @IBOutlet weak var saveButton: UIButton!
+    
     // MARK: - Life Cycle Methods
 
     override func viewDidLoad() {
@@ -29,8 +30,7 @@ class TeamDetailViewController: UIViewController {
     }
   
     // MARK: - IBActions
-
-    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
         guard let name = nameTextField.text, !name.isEmpty else { return }
 
         var website = websiteTextField.text
@@ -64,15 +64,13 @@ class TeamDetailViewController: UIViewController {
             nameTextField.text = team.name
             phoneNumberTextField.text = team.phoneNumber
             websiteTextField.text = team.url
-            self.title = team.name
-        } else {
-            // Sets the title of the navigation item if the user is adding a new team
-            self.title = "Add Your Team"
         }
 
         // Adds done button to each text field's keyboard to resign first responder
         nameTextField.addDoneButtonOnKeyboard()
         phoneNumberTextField.addDoneButtonOnKeyboard()
         websiteTextField.addDoneButtonOnKeyboard()
+        saveButton.layer.cornerRadius = 5
+        saveButton.layer.masksToBounds = true
     }
 }

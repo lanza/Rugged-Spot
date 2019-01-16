@@ -9,5 +9,5 @@
 import Foundation
 
 struct Style {
-    static let styles = ["7s", "15s", "10s", "Super Social"]
+    static let styles = ["7s", "10s", "15s", "Super Social"]
 }

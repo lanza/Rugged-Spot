@@ -9,7 +9,7 @@
 import UIKit
 
 extension String {
-
+    // All of the code in this extension is used make the call button function. When you call .makeACall() on a string, it will strip away all punctuation and check to see if the phone number is valid. Use of this allows the user to type in their team's phone number however they want, and allow for proper functionality of the call button
     enum RegularExpressions: String {
         case phone = "^\\s*(?:\\+?(\\d{1,3}))?([-. (]*(\\d{3})[-. )]*)?((\\d{3})[-. ]*(\\d{2,4})(?:[-.x ]*(\\d+))?)\\s*$"
     }
