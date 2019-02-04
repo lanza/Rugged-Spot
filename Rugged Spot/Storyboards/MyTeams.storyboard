@@ -51,7 +51,7 @@
                                                     <rect key="frame" x="12" y="12" width="351" height="118"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTx-TF-W0F">
-                                                            <rect key="frame" x="16" y="61" width="158" height="41"/>
+                                                            <rect key="frame" x="16" y="61" width="153" height="41"/>
                                                             <color key="backgroundColor" name="mainColor"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                                             <inset key="contentEdgeInsets" minX="0.0" minY="6" maxX="0.0" maxY="6"/>
@@ -63,7 +63,7 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dks-VK-jat">
-                                                            <rect key="frame" x="177" y="61" width="158" height="41"/>
+                                                            <rect key="frame" x="182" y="61" width="153" height="41"/>
                                                             <color key="backgroundColor" name="mainColor"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                                             <inset key="contentEdgeInsets" minX="0.0" minY="6" maxX="0.0" maxY="6"/>
@@ -84,15 +84,15 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="nTx-TF-W0F" firstAttribute="leading" secondItem="rbV-xi-dCb" secondAttribute="leading" id="0ft-4O-adL"/>
-                                                        <constraint firstItem="nTx-TF-W0F" firstAttribute="width" secondItem="S6I-oj-7VP" secondAttribute="width" multiplier="0.45" id="4dq-xZ-Baf"/>
+                                                        <constraint firstItem="nTx-TF-W0F" firstAttribute="width" secondItem="rbV-xi-dCb" secondAttribute="width" multiplier="0.48" id="2Dr-SL-yoi"/>
                                                         <constraint firstItem="Dks-VK-jat" firstAttribute="trailing" secondItem="rbV-xi-dCb" secondAttribute="trailing" id="6Ix-S0-yIM"/>
                                                         <constraint firstAttribute="bottomMargin" secondItem="nTx-TF-W0F" secondAttribute="bottom" constant="8" id="K87-2G-RaR"/>
+                                                        <constraint firstItem="Dks-VK-jat" firstAttribute="width" secondItem="nTx-TF-W0F" secondAttribute="width" id="KxZ-ft-fjj"/>
                                                         <constraint firstItem="rbV-xi-dCb" firstAttribute="top" secondItem="S6I-oj-7VP" secondAttribute="topMargin" constant="8" id="MnB-K3-PqQ"/>
                                                         <constraint firstItem="Dks-VK-jat" firstAttribute="top" secondItem="rbV-xi-dCb" secondAttribute="bottom" constant="12" id="ScC-ad-rgY"/>
                                                         <constraint firstItem="nTx-TF-W0F" firstAttribute="top" secondItem="rbV-xi-dCb" secondAttribute="bottom" constant="12" id="bkg-je-PUD"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="rbV-xi-dCb" secondAttribute="trailing" constant="8" id="c6U-F7-ZC0"/>
                                                         <constraint firstItem="rbV-xi-dCb" firstAttribute="leading" secondItem="S6I-oj-7VP" secondAttribute="leadingMargin" constant="8" id="dBa-xO-ncl"/>
-                                                        <constraint firstItem="Dks-VK-jat" firstAttribute="width" secondItem="S6I-oj-7VP" secondAttribute="width" multiplier="0.45" id="h4L-bc-MUB"/>
                                                         <constraint firstAttribute="bottomMargin" secondItem="Dks-VK-jat" secondAttribute="bottom" constant="8" id="vdA-mR-F4l"/>
                                                     </constraints>
                                                 </view>

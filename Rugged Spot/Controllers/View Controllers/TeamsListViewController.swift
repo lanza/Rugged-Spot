@@ -115,6 +115,7 @@ extension TeamsListViewController: TeamTableViewCellDelegate {
             self.present(alertController, animated: true, completion: nil)
             return
         }
+        
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
