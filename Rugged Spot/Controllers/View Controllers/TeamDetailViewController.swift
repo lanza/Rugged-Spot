@@ -16,10 +16,10 @@ class TeamDetailViewController: UIViewController {
 
     // MARK: - IBOutlets
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var websiteTextField: UITextField!
-    @IBOutlet weak var defaultView: UIView!
     @IBOutlet weak var saveButton: UIButton!
     
     // MARK: - Life Cycle Methods
@@ -66,11 +66,51 @@ class TeamDetailViewController: UIViewController {
             websiteTextField.text = team.url
         }
 
-        // Adds done button to each text field's keyboard to resign first responder
-        nameTextField.addDoneButtonOnKeyboard()
-        phoneNumberTextField.addDoneButtonOnKeyboard()
+        // Adds done button or next to each text field's keyboard to resign first responder
+        if team != nil {
+            nameTextField.addDoneButtonOnKeyboard()
+            phoneNumberTextField.addDoneButtonOnKeyboard()
+        } else {
+            nameTextField.addNextButtonOnKeyboard()
+            phoneNumberTextField.addNextButtonOnKeyboard()
+        }
         websiteTextField.addDoneButtonOnKeyboard()
         saveButton.layer.cornerRadius = 5
         saveButton.layer.masksToBounds = true
+        
+        // Add observers for keyboard notifications to give content insets to the scroll view
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    // Adds content inset to scroll view when kayboard appears
+    @objc func keyboardWillShow(notification: NSNotification) {
+        var userInfo = notification.userInfo!
+        var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        
+        var contentInset: UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height + 50
+        scrollView.contentInset = contentInset
+    }
+    
+    // Removes content insets from scroll view when keyboard hides
+    @objc func keyboardWillHide(notification: NSNotification) {
+        let contentInset = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
+    }
+}
+
+extension TeamDetailViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == nameTextField && phoneNumberTextField.text == "" {
+            phoneNumberTextField.becomeFirstResponder()
+            nameTextField.addDoneButtonOnKeyboard()
+        }
+        
+        if textField == phoneNumberTextField && websiteTextField.text == "" {
+            websiteTextField.becomeFirstResponder()
+            phoneNumberTextField.addDoneButtonOnKeyboard()
+        }
     }
 }

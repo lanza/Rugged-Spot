@@ -21,6 +21,7 @@ class TournamentDetailViewController: UIViewController {
     
     // MARK: - IBOutlets
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
@@ -37,6 +38,17 @@ class TournamentDetailViewController: UIViewController {
         setUpViews()
     }
     
+    // Opens whatever the tournaments website is when the "Visit Website" button is tapped
+    @IBAction func websiteButtonTapped(_ sender: UIButton) {
+        if let urlString = tournament?.url, let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+    }
+    
     // Sets the views for each UIelement inside of the view controller
     func setUpViews() {
         websiteButton.layer.cornerRadius = 5
@@ -50,16 +62,5 @@ class TournamentDetailViewController: UIViewController {
         styleLabel.text = "Style: \(style)"
         leagueLabel.text = "League: \(league)"
         logoImageView.image = logoImage
-    }
-    
-    // Opens whatever the tournaments website is when the "Visit Website" button is tapped
-    @IBAction func websiteButtonTapped(_ sender: UIButton) {
-        if let urlString = tournament?.url, let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
-            if #available(iOS 10, *) {
-                UIApplication.shared.open(url)
-            } else {
-                UIApplication.shared.openURL(url)
-            }
-        }
     }
 }

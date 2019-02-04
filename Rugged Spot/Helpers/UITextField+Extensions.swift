@@ -50,10 +50,10 @@ extension UITextField {
         doneToolbar.barStyle = .default
 
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let done = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(doneButtonAction))
-        done.tintColor = UIColor.init(named: "mainColor")
+        let next = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(doneButtonAction))
+        next.tintColor = UIColor.init(named: "mainColor")
 
-        let items = [flexSpace, done]
+        let items = [flexSpace, next]
         doneToolbar.items = items
         doneToolbar.sizeToFit()
         inputAccessoryView = doneToolbar

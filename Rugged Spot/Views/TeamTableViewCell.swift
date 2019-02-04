@@ -26,8 +26,6 @@ class TeamTableViewCell: UITableViewCell {
         whiteView.layer.cornerRadius = 5
         whiteView.layer.masksToBounds = true
         shadowView.layer.cornerRadius = 5
-        
-        
     }
   
     @IBOutlet weak var nameLabel: UILabel!

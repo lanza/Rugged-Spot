@@ -18,6 +18,7 @@ class SearchViewController: UIViewController {
 
     // MARK: - IBOutlets
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var divisionTextField: UITextField!
     @IBOutlet weak var styleTextField: UITextField!
@@ -55,6 +56,10 @@ class SearchViewController: UIViewController {
         // Makes the search button have rounded edges
         searchButton.layer.cornerRadius = 5
         searchButton.clipsToBounds = true
+        
+        // Add observers for keyboard notifications to give content insets to the scroll view
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     // Sets colors for navBar, search button and segemented control to whatever color is named "mainColor" in the assets folder
@@ -62,6 +67,23 @@ class SearchViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor.init(named: "mainColor")
         leagueSegmentedControl.tintColor = UIColor.init(named: "mainColor")
         searchButton.tintColor = UIColor.init(named: "mainColor")
+    }
+    
+    // Adds content inset to scroll view when kayboard appears
+    @objc func keyboardWillShow(notification: NSNotification) {
+        var userInfo = notification.userInfo!
+        var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        
+        var contentInset: UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height + 50
+        scrollView.contentInset = contentInset
+    }
+    
+    // Removes content insets from scroll view when keyboard hides
+    @objc func keyboardWillHide(notification: NSNotification) {
+        let contentInset = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
     }
 
     // Forces whichever text field is open to resignFirstResponder()
@@ -126,10 +148,8 @@ class SearchViewController: UIViewController {
     }
 }
 
+// MARK: - UIPickerView Data Source Methods
 extension SearchViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-
-    // MARK: - UIPickerView Data Source Methods
-
     //Sets the picker to only have one component to select from
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -199,10 +219,12 @@ extension SearchViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == stateTextField && divisionTextField.text == "" {
             divisionTextField.becomeFirstResponder()
+            stateTextField.addDoneButtonOnKeyboard()
         }
 
         if textField == divisionTextField && styleTextField.text == "" {
             styleTextField.becomeFirstResponder()
+            divisionTextField.addDoneButtonOnKeyboard()
         }
     }
 }
