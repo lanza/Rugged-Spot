@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGg-36-8jT">
-                                <rect key="frame" x="28" y="544" width="319" height="50"/>
+                                <rect key="frame" x="20" y="548" width="335" height="50"/>
                                 <color key="backgroundColor" name="mainColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="OoN-dd-Ndq"/>
@@ -33,7 +33,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mDR-Kx-i9e">
-                                <rect key="frame" x="0.0" y="64" width="375" height="456"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="464"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamCell" rowHeight="142" id="pI7-VM-rUi" customClass="TeamTableViewCell" customModule="Rugged_Spot" customModuleProvider="target">
@@ -124,13 +124,13 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eZp-1B-yau">
-                                <rect key="frame" x="375" y="64" width="375" height="456"/>
+                                <rect key="frame" x="375" y="64" width="375" height="464"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RsR-C4-8rt">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="456"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="464"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="R7l-Ve-GdD">
-                                                <rect key="frame" x="0.0" y="97" width="375" height="262.5"/>
+                                                <rect key="frame" x="0.0" y="101" width="375" height="262.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ruggedSpotLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5Hj-bl-Ren">
                                                         <rect key="frame" x="56.5" y="0.0" width="262.5" height="262.5"/>
@@ -172,16 +172,16 @@
                         <constraints>
                             <constraint firstItem="mDR-Kx-i9e" firstAttribute="bottom" secondItem="eZp-1B-yau" secondAttribute="bottom" id="4Xj-IV-gVS"/>
                             <constraint firstItem="eZp-1B-yau" firstAttribute="top" secondItem="OQL-2A-zS0" secondAttribute="top" id="4Zv-2Z-rRQ"/>
-                            <constraint firstItem="OQL-2A-zS0" firstAttribute="trailing" secondItem="kGg-36-8jT" secondAttribute="trailing" constant="28" id="Gmw-z1-KaE"/>
+                            <constraint firstItem="OQL-2A-zS0" firstAttribute="trailing" secondItem="kGg-36-8jT" secondAttribute="trailing" constant="20" id="Gmw-z1-KaE"/>
                             <constraint firstItem="eZp-1B-yau" firstAttribute="width" secondItem="OQL-2A-zS0" secondAttribute="width" id="H4o-Bi-t6Q"/>
-                            <constraint firstItem="kGg-36-8jT" firstAttribute="top" secondItem="mDR-Kx-i9e" secondAttribute="bottom" constant="24" id="M2j-5V-mE2"/>
-                            <constraint firstItem="OQL-2A-zS0" firstAttribute="bottom" secondItem="kGg-36-8jT" secondAttribute="bottom" constant="24" id="Pav-e1-Kqm"/>
+                            <constraint firstItem="kGg-36-8jT" firstAttribute="top" secondItem="mDR-Kx-i9e" secondAttribute="bottom" constant="20" id="M2j-5V-mE2"/>
+                            <constraint firstItem="OQL-2A-zS0" firstAttribute="bottom" secondItem="kGg-36-8jT" secondAttribute="bottom" constant="20" id="Pav-e1-Kqm"/>
                             <constraint firstItem="mDR-Kx-i9e" firstAttribute="leading" secondItem="OQL-2A-zS0" secondAttribute="leading" id="ZEy-yZ-Brg"/>
                             <constraint firstItem="eZp-1B-yau" firstAttribute="leading" secondItem="OQL-2A-zS0" secondAttribute="trailing" priority="950" id="cS5-KQ-QIw"/>
                             <constraint firstItem="mDR-Kx-i9e" firstAttribute="top" secondItem="OQL-2A-zS0" secondAttribute="top" id="mLx-GD-xc6"/>
                             <constraint firstItem="eZp-1B-yau" firstAttribute="leading" secondItem="OQL-2A-zS0" secondAttribute="leading" priority="900" id="usq-cn-h9N"/>
                             <constraint firstItem="OQL-2A-zS0" firstAttribute="trailing" secondItem="mDR-Kx-i9e" secondAttribute="trailing" id="vLH-59-mOA"/>
-                            <constraint firstItem="kGg-36-8jT" firstAttribute="leading" secondItem="OQL-2A-zS0" secondAttribute="leading" constant="28" id="zJa-7d-w6U"/>
+                            <constraint firstItem="kGg-36-8jT" firstAttribute="leading" secondItem="OQL-2A-zS0" secondAttribute="leading" constant="20" id="zJa-7d-w6U"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OQL-2A-zS0"/>
                     </view>
