@@ -34,7 +34,7 @@ class StateSearchViewController: UIViewController {
         statePickerView.selectedRow(inComponent: 0)
         stateTextField.inputView = statePickerView
         stateTextField.addDoneButtonOnKeyboard()
-        TournamentController.shared.fetchAllTournamentsFor(state: StateController.shared.states.first!) { (success) in
+        TournamentController.shared.fetchAllTournaments(for: StateController.shared.states.first!) { (success) in
             if success {
                 DispatchQueue.main.async {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -131,7 +131,7 @@ extension StateSearchViewController: UIPickerViewDelegate, UIPickerViewDataSourc
             let state = StateController.shared.states[row]
             stateTextField.text = state.name
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
-            TournamentController.shared.fetchAllTournamentsFor(state: state) { (success) in
+            TournamentController.shared.fetchAllTournaments(for: state) { (success) in
                 if success {
                     DispatchQueue.main.async {
                         UIApplication.shared.isNetworkActivityIndicatorVisible = false
