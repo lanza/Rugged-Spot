@@ -25,10 +25,15 @@ class TournamentController {
     // MARK: - Firebase Methods
 
     func fetchAllTournaments(for state: State, completion: @escaping ((Bool) -> Void)) {
+        if let cached = tournamentCache[state] {
+            self.tournaments = cached
+            completion(true)
+            return
+        }
         self.tournaments = []
         ref.child(state.name).observe(.value) { snapshot in
             if let dicts = snapshot.value as? [String:[String:Any]] {
-                dicts.forEach { key, dict in
+                for (key, dict) in dicts {
 
                     let name = key
                     let state = dict["state"] as? String
@@ -42,6 +47,7 @@ class TournamentController {
                         self.tournaments.append(tournament)
                     }
                 }
+                self.tournamentCache[state] = self.tournaments
             }
             completion(true)
             return
