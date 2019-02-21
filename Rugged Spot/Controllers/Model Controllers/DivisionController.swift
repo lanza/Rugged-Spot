@@ -16,11 +16,5 @@ class DivisionController {
     
     // MARK: - Source of Truth
     
-    var divisions: [Division] = []
-    
-    private init() {
-        divisions = [ Division(name:"Premier"), Division(name:"Club"), Division(name:"Open"), Division(name:"Social"), Division(name:"U20"), Division(name:"High School"), Division(name:"College"), Division(name:"Over 35"), Division(name:"Old Boys")]
-        
-    }
-    
+    let divisions = ["Premier", "Club", "Open", "Social", "U20", "High School", "College", "Over 35"].map {Division(name: $0) }
 }
