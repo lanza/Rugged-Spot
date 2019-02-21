@@ -18,24 +18,18 @@ class StateController {
     private init() {
         //Might put this back in if I use a dictionary for tournaments instead of seperate arrays
 //        State(name: "None"),
-        states = [State(name: "Alabama"), State(name: "Alaska"),
-                  State(name: "Arizona"), State(name: "Arkansas"), State(name: "California"),
-                  State(name: "Colorado"), State(name: "Connecticut"),
-                  State(name: "Delaware"), State(name: "Florida"), State(name: "Georgia"),
-                  State(name: "Hawaii"), State(name: "Idaho"), State(name: "Illinois"),
-                  State(name: "Indiana"), State(name: "Iowa"), State(name: "Kansas"),
-                  State(name: "Kentucky"), State(name: "Louisiana"), State(name: "Maine"),
-                  State(name: "Maryland"), State(name: "Massachusetts"), State(name: "Michigan"),
-                  State(name: "Minnesota"), State(name: "Mississippi"), State(name: "Missouri"),
-                  State(name: "Montana"), State(name: "Nebraska"), State(name: "Nevada"),
-                  State(name: "New Hampshire"), State(name: "New Jersey"), State(name: "New Mexico"),
-                  State(name: "New York"), State(name: "North Carolina"),
-                  State(name: "North Dakota"), State(name: "Ohio"), State(name: "Oklahoma"),
-                  State(name: "Oregon"), State(name: "Pennsylvania"), State(name: "Rhose Island"),
-                  State(name: "South Carolina"), State(name: "South Dekota"),
-                  State(name: "Tennessee"), State(name: "Texas"), State(name: "Utah"),
-                  State(name: "Vermont"), State(name: "Virginia"), State(name: "Washington"),
-                  State(name: "West Virginia"), State(name: "Wisconsin"), State(name: "Wyoming")]
+        states = ["Alabama", "Alaska", "Arizona", "Arkansas", "California",
+                  "Colorado", "Connecticut", "Delaware", "Florida", "Georgia",
+                  "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas",
+                  "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts",
+                  "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana",
+                  "Nebraska", "Nevada", "New Hampshire", "New Jersey",
+                  "New Mexico", "New York", "North Carolina", "North Dakota",
+                  "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhose Island",
+                  "South Carolina", "South Dekota", "Tennessee", "Texas",
+                  "Utah", "Vermont", "Virginia", "Washington", "West Virginia",
+                  "Wisconsin", "Wyoming"]
+            .map { State(name: $0) }
     }
     
     func toggleSelectedFor(state: State) {
