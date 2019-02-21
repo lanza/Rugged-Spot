@@ -34,7 +34,7 @@ class TournamentController {
         ref.child(state.name).observe(.value) { snapshot in
             if let dicts = snapshot.value as? [String:[String:Any]] {
                 for (key, dict) in dicts {
-
+                  
                     let name = key
                     let state = dict["state"] as? String
                     let city = dict["city"] as? String
@@ -42,12 +42,14 @@ class TournamentController {
                     let arrayOfTypes = dict["types"] as? [[String:Any]]
                     let types = arrayOfTypes.flatMap { return $0.compactMap { TournamentType(dictionary: $0) } }
 
+
                     if let state = state, let city = city, let url = url, let types = types {
                         let tournament = Tournament(name: name, state: state, city: city, url: url, types: types)
                         self.tournaments.append(tournament)
                     }
                 }
                 self.tournamentCache[state] = self.tournaments
+
             }
             completion(true)
             return

@@ -12,8 +12,8 @@ class BorderedLabel: UILabel {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.font = UIFont(name: "Avenir Book", size: 18)
-        self.layer.borderColor = UIColor.init(named: "mainColor")?.cgColor
+        self.font = Theme.Fonts.main
+        self.layer.borderColor = Theme.Colors.main
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 5
         self.layer.masksToBounds = true

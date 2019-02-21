@@ -50,6 +50,7 @@
 		3CFCF2FD2190A03B00DFF9FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CFCF2FC2190A03B00DFF9FD /* Assets.xcassets */; };
 		3CFCF3002190A03B00DFF9FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFCF2FE2190A03B00DFF9FD /* LaunchScreen.storyboard */; };
 		3CFCF30A2190A3C800DFF9FD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCF3092190A3C800DFF9FD /* SearchViewController.swift */; };
+		B31E6DAD221E730A00AADA59 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31E6DAC221E730A00AADA59 /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +100,7 @@
 		3CFCF3092190A3C800DFF9FD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		4C4B4FA19D37F6D02914A994 /* Pods_Rugged_Spot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rugged_Spot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB77C89C6F599DA87D8495D1 /* Pods-Rugged Spot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rugged Spot.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rugged Spot/Pods-Rugged Spot.release.xcconfig"; sourceTree = "<group>"; };
+		B31E6DAC221E730A00AADA59 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		BD48DD1B7875F268E84463DB /* Pods-Rugged Spot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rugged Spot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rugged Spot/Pods-Rugged Spot.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,6 +205,7 @@
 				3CF1F1A62191736800C8D561 /* Storyboards */,
 				3CA3A92321AA365900CA8662 /* Helpers */,
 				3CFCF3072190A04F00DFF9FD /* Resources */,
+				B31E6DAE221E731200AADA59 /* Theme */,
 			);
 			path = "Rugged Spot";
 			sourceTree = "<group>";
@@ -261,6 +264,15 @@
 				4C4B4FA19D37F6D02914A994 /* Pods_Rugged_Spot.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B31E6DAE221E731200AADA59 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				B31E6DAC221E730A00AADA59 /* Theme.swift */,
+			);
+			name = Theme;
+			path = Themee;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,6 +417,7 @@
 				3C2A9D6121EE462300B72967 /* String+Extension.swift in Sources */,
 				3C880AA9221DF790003BF108 /* LeagueController.swift in Sources */,
 				3C8E8E6D2190A72400C26EA7 /* Division.swift in Sources */,
+				B31E6DAD221E730A00AADA59 /* Theme.swift in Sources */,
 				3C241A0521BF284600D35E67 /* TeamDetailViewController.swift in Sources */,
 				3C76187F2208E6AE00CA8E6F /* PickerTextField.swift in Sources */,
 				3C64F822221205C40058AA91 /* DivisionController.swift in Sources */,
