@@ -19,6 +19,6 @@ class StyleController {
     var styles: [Style] = []
     
     private init() {
-        styles = [Style(name: "7s"), Style(name: "10s"), Style(name: "15s"), Style(name: "Super Social")]
+        styles = ["7s", "10s", "15s", "Super Social"].map { Style(name: $0) }
     }
 }
