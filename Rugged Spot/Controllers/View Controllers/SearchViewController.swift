@@ -52,6 +52,10 @@ class SearchViewController: UIViewController {
         // Make the font of the SegmentedControl match the rest of the app's font
         let font = UIFont(name: "Avenir Book", size: 18)
         leagueSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font as Any], for: .normal)
+
+        // Makes the search button have rounded edges
+        searchButton.layer.cornerRadius = 5
+        searchButton.clipsToBounds = true
         
         // Add observers for keyboard notifications to give content insets to the scroll view
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -106,25 +110,41 @@ class SearchViewController: UIViewController {
         searchButton.isEnabled = false
         textFieldResignFirstResponders()
         // League defaults to Mens unless selected otherwise
-//        var league = "Mens"
-//        if leagueSegmentedControl.selectedSegmentIndex == 1 {
-//            league = "Womens"
-//        }
+        var league = "Mens"
+        if leagueSegmentedControl.selectedSegmentIndex == 1 {
+            league = "Womens"
+        }
 
         // Searches Firebase for the selected parameters.  If search results are found, performs segue, else displays an alert telling the user that no tournaments met the search criteria.
-//        TournamentController.shared.fetchTournamentFor(state: state, division: division, style: style, league: league) { (success) in
-//            if success {
-//                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-//                self.searchButton.isEnabled = true
-//                self.performSegue(withIdentifier: "toResultsController", sender: self)
-//            } else {
-//                let alertController = UIAlertController(title: "No Tournaments Found", message: "No tournament was found meeting those criterias", preferredStyle: .alert)
-//                alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-//                self.present(alertController, animated: true, completion: nil)
-//                self.searchButton.isEnabled = true
-//                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-//            }
-//        }
+        TournamentController.shared.fetchTournamentFor(state: state, division: division, style: style, league: league) { (success) in
+            if success {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.searchButton.isEnabled = true
+                self.performSegue(withIdentifier: "toResultsController", sender: self)
+            } else {
+                let alertController = UIAlertController(title: "No Tournaments Found", message: "No tournament was found meeting those criterias", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                self.present(alertController, animated: true, completion: nil)
+                self.searchButton.isEnabled = true
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
+        }
+    }
+
+    // MARK: - Navigation
+    //Sends the state, style, division, and league information to next viewcontroller to populate each cell
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toResultsController" {
+            guard let destinationVC = segue.destination as? ResultViewController else { return }
+            destinationVC.style = styleTextField.text!
+            destinationVC.state = stateTextField.text!
+            destinationVC.division = divisionTextField.text!
+            if leagueSegmentedControl.selectedSegmentIndex == 0 {
+                destinationVC.league = "Mens"
+            } else {
+                destinationVC.league = "Womens"
+            }
+        }
     }
 }
 
@@ -139,11 +159,11 @@ extension SearchViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch pickerView {
         case statePickerView:
-            return StateController.shared.states.count
+            return State.states.count
         case divisionPickerView:
-            return DivisionController.shared.divisions.count
+            return Division.divisions.count
         case stylePickerView:
-            return StyleController.shared.styles.count
+            return Style.styles.count
         default:
             return 0
         }
@@ -155,11 +175,11 @@ extension SearchViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch pickerView {
         case statePickerView:
-            return StateController.shared.states[row].name
+            return State.states[row]
         case divisionPickerView:
-            return DivisionController.shared.divisions[row].name
+            return Division.divisions[row]
         case stylePickerView:
-            return StyleController.shared.styles[row].name
+            return Style.styles[row]
         default:
             return ""
         }
@@ -169,11 +189,11 @@ extension SearchViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch pickerView {
         case statePickerView:
-            stateTextField.text = StateController.shared.states[row].name
+            stateTextField.text = State.states[row]
         case divisionPickerView:
-            divisionTextField.text = DivisionController.shared.divisions[row].name
+            divisionTextField.text = Division.divisions[row]
         case stylePickerView:
-            styleTextField.text = StyleController.shared.styles[row].name
+            styleTextField.text = Style.styles[row]
         default:
             return
         }
@@ -186,11 +206,11 @@ extension SearchViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         switch textField {
         case stateTextField:
-            stateTextField.text = StateController.shared.states[statePickerView.selectedRow(inComponent: 0)].name
+            stateTextField.text = State.states[statePickerView.selectedRow(inComponent: 0)]
         case divisionTextField:
-            divisionTextField.text = DivisionController.shared.divisions[divisionPickerView.selectedRow(inComponent: 0)].name
+            divisionTextField.text = Division.divisions[divisionPickerView.selectedRow(inComponent: 0)]
         case styleTextField:
-            styleTextField.text = StyleController.shared.styles[stylePickerView.selectedRow(inComponent: 0)].name
+            styleTextField.text = Style.styles[stylePickerView.selectedRow(inComponent: 0)]
         default:
             return
         }

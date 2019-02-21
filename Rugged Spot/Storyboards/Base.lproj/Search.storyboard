@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--OldSearch-->
+        <!--Search-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="Rugged_Spot" customModuleProvider="target" sceneMemberID="viewController">
@@ -137,7 +137,7 @@
                                                         <rect key="frame" x="0.0" y="349.66666666666669" width="374" height="177.33333333333331"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RY5-Ml-O04" customClass="MainButton" customModule="Rugged_Spot" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RY5-Ml-O04">
                                                         <rect key="frame" x="0.0" y="533" width="374" height="50"/>
                                                         <color key="backgroundColor" name="mainColor"/>
                                                         <constraints>
@@ -185,7 +185,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="OldSearch" id="AoV-hV-MyN"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="tournament" id="AoV-hV-MyN"/>
                     <navigationItem key="navigationItem" id="7Z8-vf-NZB"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -198,6 +198,7 @@
                         <outlet property="stateTextField" destination="yUw-Yu-vmJ" id="0yS-7f-mex"/>
                         <outlet property="stylePickerView" destination="2WB-7g-fBo" id="3fd-lO-lrj"/>
                         <outlet property="styleTextField" destination="02b-u4-kZ5" id="O8R-3T-p6p"/>
+                        <segue destination="DlT-Q2-iUn" kind="show" identifier="toResultsController" id="Yol-b2-1qa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -228,6 +229,14 @@
             </objects>
             <point key="canvasLocation" x="1076" y="133.5832083958021"/>
         </scene>
+        <!--Results-->
+        <scene sceneID="dC6-oT-Vbj">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Results" id="DlT-Q2-iUn" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y2Y-KU-fBq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1938" y="133"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="7cY-N2-Doz">
             <objects>
@@ -256,6 +265,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="tournament" width="24" height="24"/>
         <namedColor name="mainColor">
             <color red="0.20784313725490197" green="0.72549019607843135" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

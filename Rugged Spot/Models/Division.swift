@@ -8,12 +8,7 @@
 
 import Foundation
 
-class Division: Selectable {
-    var name: String
-    var isSelected: Bool
-    
-    init(name: String, isSelected: Bool = false) {
-        self.name = name
-        self.isSelected = isSelected
-    }
+struct Division {
+    static let divisions = ["Premier", "Club", "Open", "Social",
+                            "U20", "High School", "College", "Over 35", "Old Boys"]
 }

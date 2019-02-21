@@ -37,6 +37,8 @@ class TeamsListViewController: UIViewController {
         }
         // Sets the navigation bar to the color named "mainColor"
         self.navigationController?.navigationBar.barTintColor = UIColor.init(named: "mainColor")
+        addTeamButton.layer.cornerRadius = 5
+        addTeamButton.layer.masksToBounds = true
     }
 
     // Animates the default view back top of the main view if the user deletes all their saved teams
@@ -102,10 +104,7 @@ extension TeamsListViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - TeanTableViewCell Delegate
 extension TeamsListViewController: TeamTableViewCellDelegate {
     func callButtonTapped(_ sender: TeamTableViewCell) {
-        sender.callButton.isEnabled = false
-        sender.team?.phoneNumber?.makeACall(completion: { (success) in
-            sender.callButton.isEnabled = true
-        })
+        sender.team?.phoneNumber?.makeACall()
     }
 
     func websiteButtonTapped(_ sender: TeamTableViewCell) {
@@ -116,10 +115,7 @@ extension TeamsListViewController: TeamTableViewCellDelegate {
             self.present(alertController, animated: true, completion: nil)
             return
         }
-        sender.websiteButton.isEnabled = false
         
-        UIApplication.shared.open(url) { (_) in
-            sender.websiteButton.isEnabled = true
-        }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }

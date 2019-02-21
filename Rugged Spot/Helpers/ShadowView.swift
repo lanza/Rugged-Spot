@@ -8,7 +8,7 @@
 
 import UIKit
 
-    // This is the subclass for creating shadows around each table view cell. Just set a second view behind a main view inside of a cell and constrain the shadowview to the edges of the main view, and this will create a shadow for the main view.
+    // This is the subclass for creating shadows around each table view cell. Just set a second view behind a min view inside of a cell and constrain the shadowview to the edges of the main view, and this will create a shadow for the main view.
 class ShadowView: UIView {
     override var bounds: CGRect {
         didSet {

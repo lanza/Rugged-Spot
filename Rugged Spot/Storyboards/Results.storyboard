@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fQD-KJ-5hi">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Result View Controller-->
+        <scene sceneID="9Pc-69-CFW">
+            <objects>
+                <viewController id="fQD-KJ-5hi" customClass="ResultViewController" customModule="Rugged_Spot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h5w-tD-7QO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pwj-Mx-3do">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="tournamentCell" rowHeight="104" id="flv-73-VgT" customClass="TournamentTableViewCell" customModule="Rugged_Spot" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="104"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="flv-73-VgT" id="jXR-FO-mzF">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Omd-s7-1Ey" customClass="ShadowView" customModule="Rugged_Spot" customModuleProvider="target">
+                                                    <rect key="frame" x="18" y="8" width="339" height="88"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <viewLayoutGuide key="safeArea" id="n4K-kd-I4d"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mDe-LV-OAb">
+                                                    <rect key="frame" x="18" y="8" width="339" height="88"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ruggedSpotLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Qq1-GC-eti">
+                                                            <rect key="frame" x="18" y="19" width="50" height="50"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="50" id="0Gt-Wh-scJ"/>
+                                                                <constraint firstAttribute="width" constant="50" id="6pd-co-23p"/>
+                                                                <constraint firstAttribute="width" secondItem="Qq1-GC-eti" secondAttribute="height" multiplier="1:1" id="eGo-Qw-fOr"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(tournament name)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cW-uM-ai3">
+                                                            <rect key="frame" x="84" y="19" width="239" height="27.5"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(tournament city)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8R-0q-eHn">
+                                                            <rect key="frame" x="84" y="48.5" width="239" height="20.5"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="U8R-0q-eHn" secondAttribute="bottom" constant="19" id="1Lf-Pb-Cc2"/>
+                                                        <constraint firstAttribute="trailing" secondItem="U8R-0q-eHn" secondAttribute="trailing" constant="16" id="BE9-vz-umA"/>
+                                                        <constraint firstAttribute="trailing" secondItem="6cW-uM-ai3" secondAttribute="trailing" constant="16" id="F8R-3c-Hah"/>
+                                                        <constraint firstItem="U8R-0q-eHn" firstAttribute="top" secondItem="6cW-uM-ai3" secondAttribute="bottom" constant="2" id="Iut-5y-gPH"/>
+                                                        <constraint firstItem="6cW-uM-ai3" firstAttribute="leading" secondItem="Qq1-GC-eti" secondAttribute="trailing" constant="16" id="JGu-zc-NvT"/>
+                                                        <constraint firstItem="Qq1-GC-eti" firstAttribute="leading" secondItem="mDe-LV-OAb" secondAttribute="leading" constant="18" id="OyF-Bm-yIV"/>
+                                                        <constraint firstItem="U8R-0q-eHn" firstAttribute="leading" secondItem="6cW-uM-ai3" secondAttribute="leading" id="eb8-id-E8o"/>
+                                                        <constraint firstItem="Qq1-GC-eti" firstAttribute="centerY" secondItem="mDe-LV-OAb" secondAttribute="centerY" id="fbS-Y8-1X3"/>
+                                                        <constraint firstItem="6cW-uM-ai3" firstAttribute="top" secondItem="mDe-LV-OAb" secondAttribute="top" constant="19" id="vAm-ly-ZO1"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="Omd-s7-1Ey" firstAttribute="top" secondItem="mDe-LV-OAb" secondAttribute="top" id="9aG-G2-duh"/>
+                                                <constraint firstAttribute="bottom" secondItem="mDe-LV-OAb" secondAttribute="bottom" constant="8" id="FuB-KV-eik"/>
+                                                <constraint firstItem="mDe-LV-OAb" firstAttribute="top" secondItem="jXR-FO-mzF" secondAttribute="top" constant="8" id="btV-4p-Jtb"/>
+                                                <constraint firstAttribute="trailing" secondItem="mDe-LV-OAb" secondAttribute="trailing" constant="18" id="dKT-48-JM1"/>
+                                                <constraint firstItem="Omd-s7-1Ey" firstAttribute="bottom" secondItem="mDe-LV-OAb" secondAttribute="bottom" id="f1c-wm-O6v"/>
+                                                <constraint firstItem="Omd-s7-1Ey" firstAttribute="trailing" secondItem="mDe-LV-OAb" secondAttribute="trailing" id="mQ5-kU-aUn"/>
+                                                <constraint firstItem="Omd-s7-1Ey" firstAttribute="leading" secondItem="mDe-LV-OAb" secondAttribute="leading" id="tOI-uj-p5c"/>
+                                                <constraint firstItem="mDe-LV-OAb" firstAttribute="leading" secondItem="jXR-FO-mzF" secondAttribute="leading" constant="18" id="vjd-La-AXz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cityLabel" destination="U8R-0q-eHn" id="GyP-FL-Ybj"/>
+                                            <outlet property="nameLabel" destination="6cW-uM-ai3" id="Aid-7s-y8Q"/>
+                                            <outlet property="shadowView" destination="Omd-s7-1Ey" id="lvR-FE-Xno"/>
+                                            <outlet property="teamLogoImageView" destination="Qq1-GC-eti" id="GhM-jo-BF3"/>
+                                            <outlet property="whiteView" destination="mDe-LV-OAb" id="Y3B-Lb-EWe"/>
+                                            <segue destination="JS7-82-9Ji" kind="show" identifier="tournamentDetailSegue" id="6Wz-IB-siw"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="fQD-KJ-5hi" id="cGp-1A-OlN"/>
+                                    <outlet property="delegate" destination="fQD-KJ-5hi" id="qY2-JO-ssw"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pwj-Mx-3do" firstAttribute="top" secondItem="sSv-oC-Bwn" secondAttribute="top" id="Ohe-Av-yLE"/>
+                            <constraint firstAttribute="trailing" secondItem="pwj-Mx-3do" secondAttribute="trailing" id="Qzv-uv-hd9"/>
+                            <constraint firstAttribute="bottom" secondItem="pwj-Mx-3do" secondAttribute="bottom" id="guS-Kh-Dlj"/>
+                            <constraint firstItem="pwj-Mx-3do" firstAttribute="leading" secondItem="h5w-tD-7QO" secondAttribute="leading" id="i4q-Aw-Sxk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sSv-oC-Bwn"/>
+                    </view>
+                    <connections>
+                        <outlet property="tournamentTableView" destination="pwj-Mx-3do" id="C5D-59-mVp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7MR-Va-wVp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="269.60000000000002" y="87.706146926536732"/>
+        </scene>
+        <!--TournamentDetail-->
+        <scene sceneID="8Jc-49-2zN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TournamentDetail" id="JS7-82-9Ji" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WPf-aG-Ald" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="930" y="87"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ruggedSpotLogo" width="320" height="130"/>
+    </resources>
+</document>

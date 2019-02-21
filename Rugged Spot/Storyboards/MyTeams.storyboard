@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGg-36-8jT" customClass="MainButton" customModule="Rugged_Spot" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGg-36-8jT">
                                 <rect key="frame" x="20" y="548" width="335" height="50"/>
                                 <color key="backgroundColor" name="mainColor"/>
                                 <constraints>
@@ -50,7 +50,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S6I-oj-7VP">
                                                     <rect key="frame" x="12" y="12" width="351" height="118"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTx-TF-W0F" customClass="MainButton" customModule="Rugged_Spot" customModuleProvider="target">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTx-TF-W0F">
                                                             <rect key="frame" x="16" y="61" width="153" height="41"/>
                                                             <color key="backgroundColor" name="mainColor"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
@@ -62,7 +62,7 @@
                                                                 <action selector="callButtonTapped:" destination="pI7-VM-rUi" eventType="touchUpInside" id="lyD-76-WZz"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dks-VK-jat" customClass="MainButton" customModule="Rugged_Spot" customModuleProvider="target">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dks-VK-jat">
                                                             <rect key="frame" x="182" y="61" width="153" height="41"/>
                                                             <color key="backgroundColor" name="mainColor"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
@@ -236,7 +236,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="myTeam" width="24" height="21"/>
+        <image name="myTeam" width="48" height="48"/>
         <image name="ruggedSpotLogo" width="320" height="130"/>
         <namedColor name="mainColor">
             <color red="0.20784313725490197" green="0.72549019607843135" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
