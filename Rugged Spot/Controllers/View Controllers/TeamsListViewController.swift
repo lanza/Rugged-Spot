@@ -31,7 +31,7 @@ class TeamsListViewController: UIViewController {
     // MARK: - Helper Methods
     func setUpViews() {
         // Sets the default view on top of the main view if the user has no saved teams
-        if TeamController.shared.teams.isEmpty {
+        if TeamController.shared.getTeams().isEmpty {
             defaultViewHiddenConstraint.priority = UILayoutPriority(rawValue: 850)
             self.view.layoutIfNeeded()
         }
@@ -41,7 +41,7 @@ class TeamsListViewController: UIViewController {
 
     // Animates the default view back top of the main view if the user deletes all their saved teams
     func checkIfDefaultViewIsNeeded() {
-        if TeamController.shared.teams.isEmpty {
+        if TeamController.shared.getTeams().isEmpty {
             defaultViewHiddenConstraint.priority = UILayoutPriority(rawValue: 850)
             UIView.animate(withDuration: 0.3) {
                 self.view.layoutIfNeeded()
@@ -58,7 +58,7 @@ class TeamsListViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editTeamSegue" {
             guard let index = tableView.indexPathForSelectedRow, let destinationVC = segue.destination as? TeamDetailViewController else { return }
-            let team = TeamController.shared.teams[index.row]
+            let team = TeamController.shared.getTeams()[index.row]
             destinationVC.team = team
         }
     }
@@ -67,7 +67,7 @@ class TeamsListViewController: UIViewController {
 // MARK: - UITableView Delegate & Datasource Methods
 extension TeamsListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TeamController.shared.teams.count
+        return TeamController.shared.getTeams().count
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -81,7 +81,7 @@ extension TeamsListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "teamCell", for: indexPath) as? TeamTableViewCell else { return UITableViewCell() }
 
-        let team = TeamController.shared.teams[indexPath.row]
+        let team = TeamController.shared.getTeams()[indexPath.row]
 
         cell.delegate = self
         cell.team = team
@@ -91,7 +91,7 @@ extension TeamsListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let teamToDelete = TeamController.shared.teams[indexPath.row]
+            let teamToDelete = TeamController.shared.getTeams()[indexPath.row]
             TeamController.shared.delete(team: teamToDelete)
             tableView.deleteRows(at: [indexPath], with: .automatic)
             checkIfDefaultViewIsNeeded()

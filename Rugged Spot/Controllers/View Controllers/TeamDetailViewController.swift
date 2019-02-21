@@ -52,7 +52,7 @@ class TeamDetailViewController: UIViewController {
         if let team = team {
             TeamController.shared.update(team: team, withName: name, phoneNumber: phoneNumberTextField.text, url: website)
         } else {
-            TeamController.shared.createTeamWith(name: name, phoneNumber: phoneNumberTextField.text, url: website)
+            TeamController.shared.createTeam(withName: name, phoneNumber: phoneNumberTextField.text, url: website)
         }
 
         self.navigationController?.popViewController(animated: true)

@@ -10,36 +10,44 @@ import Foundation
 import CoreData
 
 class TeamController {
-
+    
     static let shared = TeamController()
-
-    var teams: [Team] {
-        let moc = CoreDataStack.managedObjectContext
-
-        let fetchRequest: NSFetchRequest<Team> = Team.fetchRequest()
-
-        let results = try? moc.fetch(fetchRequest)
-
-        return results ?? []
+    
+    private var teams: [Team]? = nil
+    init(teams: [Team]? = nil) {
+        self.teams = teams
     }
-
-    func createTeamWith(name: String, phoneNumber: String?, url: String?) {
-        _ = Team(name: name, phoneNumber: phoneNumber, url: url)
+    
+    func getTeams() -> [Team] {
+        if teams == nil {
+            let moc = CoreDataStack.managedObjectContext
+            let fetchRequest: NSFetchRequest<Team> = Team.fetchRequest()
+            self.teams = (try? moc.fetch(fetchRequest)) ?? []
+        }
+        return teams!
+    }
+    
+    func createTeam(withName name: String, phoneNumber: String?, url: String?) {
+        let team = Team(name: name, phoneNumber: phoneNumber, url: url)
+        teams?.append(team)
         saveToPersistentStore()
     }
-
+    
     func update(team: Team, withName name: String, phoneNumber: String?, url: String?) {
         team.name = name
         team.url = url
         team.phoneNumber = phoneNumber
         saveToPersistentStore()
     }
-
+    
     func delete(team: Team) {
         CoreDataStack.managedObjectContext.delete(team)
+        if let teams = teams, let index = teams.index(of: team) {
+            self.teams!.remove(at: index)
+        }
         saveToPersistentStore()
     }
-
+    
     func saveToPersistentStore() {
         do {
             try CoreDataStack.managedObjectContext.save()
