@@ -28,14 +28,10 @@ extension String {
         return String(String.UnicodeScalarView(filtredUnicodeScalars))
     }
 
-    func makeACall() {
+    func makeACall(completion: @escaping ((Bool) -> Void)) {
         if isValid(regex: .phone) {
             if let url = URL(string: "tel://\(self.onlyDigits())"), UIApplication.shared.canOpenURL(url) {
-                if #available(iOS 10, *) {
-                    UIApplication.shared.open(url)
-                } else {
-                    UIApplication.shared.openURL(url)
-                }
+                    UIApplication.shared.open(url, completionHandler: completion)
             }
         }
     }

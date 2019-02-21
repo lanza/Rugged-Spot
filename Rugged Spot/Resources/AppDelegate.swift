@@ -20,9 +20,6 @@ import FirebaseDatabase
 
         // Required initialiser for Firebase App
         FirebaseApp.configure()
-
-        // Enable Firebase Persistence
-        Database.database().isPersistenceEnabled = true
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

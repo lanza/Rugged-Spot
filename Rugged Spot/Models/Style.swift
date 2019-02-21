@@ -8,6 +8,12 @@
 
 import Foundation
 
-struct Style {
-    static let styles = ["7s", "10s", "15s", "Super Social"]
+class Style: Selectable {
+    var name: String
+    var isSelected: Bool
+    
+    init(name:String, isSelected: Bool = false) {
+        self.name = name
+        self.isSelected = isSelected
+    }
 }

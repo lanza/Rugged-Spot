@@ -9,8 +9,10 @@
 import Foundation
 import Firebase
 
-struct Tournament {
+struct Tournament: Codable {
     var name: String
+    var state: String
     var city: String
     var url: String
+    var types: [TournamentType]
 }
