@@ -50,7 +50,7 @@ class SearchViewController: UIViewController {
         styleTextField.addDoneButtonOnKeyboard()
         
         // Make the font of the SegmentedControl match the rest of the app's font
-        let font = UIFont(name: "Avenir Book", size: 18)
+        let font = Theme.Fonts.main
         leagueSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font as Any], for: .normal)
         
         // Add observers for keyboard notifications to give content insets to the scroll view
