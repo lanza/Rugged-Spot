@@ -38,7 +38,7 @@ class StateController {
                   State(name: "West Virginia"), State(name: "Wisconsin"), State(name: "Wyoming")]
     }
     
-    func toggleSelectedFor(state: State) {
+    func toggleSelected(for state: State) {
         state.isSelected = !state.isSelected
     }
 }
