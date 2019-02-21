@@ -19,10 +19,6 @@ class TeamTableViewCell: UITableViewCell {
     }
     
     func setUpViews() {
-        callButton.layer.cornerRadius = 5
-        callButton.layer.masksToBounds = true
-        websiteButton.layer.cornerRadius = 5
-        websiteButton.layer.masksToBounds = true
         whiteView.layer.cornerRadius = 5
         whiteView.layer.masksToBounds = true
         shadowView.layer.cornerRadius = 5

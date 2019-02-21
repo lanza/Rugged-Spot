@@ -8,8 +8,11 @@
 
 import UIKit
 
+/*
+ This subclass is used for any of the UITextFields that have a picker view for its keyboard types. These overrides just remove the blinking text selection cursor as no text will be typed in these fields
+ */
 class PickerTextField: UITextField {
-
+    
     override func caretRect(for position: UITextPosition) -> CGRect {
         return CGRect.zero
     }

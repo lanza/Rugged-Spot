@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rtg-3T-bm6">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search-->
+        <scene sceneID="Zmm-pp-RGG">
+            <objects>
+                <viewController id="djP-pa-7g1" customClass="StateSearchViewController" customModule="Rugged_Spot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jaT-F9-lxb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="epa-24-RwZ">
+                                <rect key="frame" x="20" y="84" width="335" height="68"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter Tournaments by State:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muZ-vJ-C2W">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="33"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Alabama" borderStyle="roundedRect" placeholder="State..." textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Svn-1a-rdk" customClass="PickerTextField" customModule="Rugged_Spot" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="35" width="335" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="33" id="ev7-Si-gCg"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="djP-pa-7g1" id="0z2-DJ-Ygv"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Brm-yh-2UH">
+                                <rect key="frame" x="0.0" y="164" width="375" height="364"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="tournamentCell" rowHeight="104" id="tGD-4O-pQk" customClass="TournamentTableViewCell" customModule="Rugged_Spot" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="104"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tGD-4O-pQk" id="HB5-Qq-cbF">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D5q-0c-zPd" customClass="ShadowView" customModule="Rugged_Spot" customModuleProvider="target">
+                                                    <rect key="frame" x="18" y="8" width="339" height="88"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <viewLayoutGuide key="safeArea" id="t0q-ee-OWf"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YNM-XJ-zZU">
+                                                    <rect key="frame" x="18" y="8" width="339" height="88"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ruggedSpotLogo" translatesAutoresizingMaskIntoConstraints="NO" id="TMu-qo-ihc">
+                                                            <rect key="frame" x="18" y="19" width="50" height="50"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="50" id="Bdm-7v-n49"/>
+                                                                <constraint firstAttribute="width" secondItem="TMu-qo-ihc" secondAttribute="height" multiplier="1:1" id="Dbe-Ey-WGM"/>
+                                                                <constraint firstAttribute="width" constant="50" id="uXP-Ua-Cfc"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(tournament name)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcF-pn-Ys2">
+                                                            <rect key="frame" x="84" y="19" width="239" height="27.5"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(tournament city)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4H-6s-To6">
+                                                            <rect key="frame" x="84" y="48.5" width="239" height="20.5"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="TMu-qo-ihc" firstAttribute="centerY" secondItem="YNM-XJ-zZU" secondAttribute="centerY" id="5mb-4k-eW2"/>
+                                                        <constraint firstAttribute="trailing" secondItem="EcF-pn-Ys2" secondAttribute="trailing" constant="16" id="6Ws-dh-XM0"/>
+                                                        <constraint firstAttribute="bottom" secondItem="K4H-6s-To6" secondAttribute="bottom" constant="19" id="RKs-Y9-Ygu"/>
+                                                        <constraint firstAttribute="trailing" secondItem="K4H-6s-To6" secondAttribute="trailing" constant="16" id="TJd-uM-S1Z"/>
+                                                        <constraint firstItem="TMu-qo-ihc" firstAttribute="leading" secondItem="YNM-XJ-zZU" secondAttribute="leading" constant="18" id="fr8-ad-Ijl"/>
+                                                        <constraint firstItem="K4H-6s-To6" firstAttribute="top" secondItem="EcF-pn-Ys2" secondAttribute="bottom" constant="2" id="o1o-Pt-nOZ"/>
+                                                        <constraint firstItem="K4H-6s-To6" firstAttribute="leading" secondItem="EcF-pn-Ys2" secondAttribute="leading" id="u2a-Ze-wAt"/>
+                                                        <constraint firstItem="EcF-pn-Ys2" firstAttribute="leading" secondItem="TMu-qo-ihc" secondAttribute="trailing" constant="16" id="viB-9i-ndY"/>
+                                                        <constraint firstItem="EcF-pn-Ys2" firstAttribute="top" secondItem="YNM-XJ-zZU" secondAttribute="top" constant="19" id="yJQ-g5-3eP"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="YNM-XJ-zZU" firstAttribute="top" secondItem="HB5-Qq-cbF" secondAttribute="top" constant="8" id="Dzc-D2-0cI"/>
+                                                <constraint firstAttribute="bottom" secondItem="YNM-XJ-zZU" secondAttribute="bottom" constant="8" id="HBB-nN-lkg"/>
+                                                <constraint firstItem="D5q-0c-zPd" firstAttribute="trailing" secondItem="YNM-XJ-zZU" secondAttribute="trailing" id="PUu-9M-xvC"/>
+                                                <constraint firstItem="D5q-0c-zPd" firstAttribute="leading" secondItem="YNM-XJ-zZU" secondAttribute="leading" id="WhI-R4-dr4"/>
+                                                <constraint firstItem="D5q-0c-zPd" firstAttribute="bottom" secondItem="YNM-XJ-zZU" secondAttribute="bottom" id="Wva-at-8NV"/>
+                                                <constraint firstAttribute="trailing" secondItem="YNM-XJ-zZU" secondAttribute="trailing" constant="18" id="Xbk-HZ-KcJ"/>
+                                                <constraint firstItem="D5q-0c-zPd" firstAttribute="top" secondItem="YNM-XJ-zZU" secondAttribute="top" id="caG-ol-bAp"/>
+                                                <constraint firstItem="YNM-XJ-zZU" firstAttribute="leading" secondItem="HB5-Qq-cbF" secondAttribute="leading" constant="18" id="xvV-Z4-1Rd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cityLabel" destination="K4H-6s-To6" id="PLD-g5-SKd"/>
+                                            <outlet property="nameLabel" destination="EcF-pn-Ys2" id="Nac-Yf-fd1"/>
+                                            <outlet property="shadowView" destination="D5q-0c-zPd" id="bcQ-y9-4qa"/>
+                                            <outlet property="teamLogoImageView" destination="TMu-qo-ihc" id="Dth-84-dYw"/>
+                                            <outlet property="whiteView" destination="YNM-XJ-zZU" id="2Vc-bf-gjZ"/>
+                                            <segue destination="sFy-Jg-mtV" kind="show" identifier="tournamentDetailSegue" id="K9h-sW-DVb"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="djP-pa-7g1" id="0ay-fc-wpd"/>
+                                    <outlet property="delegate" destination="djP-pa-7g1" id="jzH-pM-rBw"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWL-97-afu" customClass="MainButton" customModule="Rugged_Spot" customModuleProvider="target">
+                                <rect key="frame" x="20" y="548" width="335" height="50"/>
+                                <color key="backgroundColor" name="mainColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="jQN-Ay-l9e"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                <inset key="contentEdgeInsets" minX="32" minY="8" maxX="32" maxY="8"/>
+                                <state key="normal" title="Add More Filters">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="HyX-M1-nLR" kind="show" id="JNn-00-3lu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="epa-24-RwZ" firstAttribute="leading" secondItem="jaT-F9-lxb" secondAttribute="leading" constant="20" id="15v-t0-oUM"/>
+                            <constraint firstItem="Brm-yh-2UH" firstAttribute="top" secondItem="epa-24-RwZ" secondAttribute="bottom" constant="12" id="8Ak-XJ-a3C"/>
+                            <constraint firstItem="Muh-JP-w2H" firstAttribute="bottom" secondItem="eWL-97-afu" secondAttribute="bottom" constant="20" id="Muy-gF-1oO"/>
+                            <constraint firstItem="eWL-97-afu" firstAttribute="leading" secondItem="Muh-JP-w2H" secondAttribute="leading" constant="20" id="TCb-5h-b1z"/>
+                            <constraint firstItem="eWL-97-afu" firstAttribute="top" secondItem="Brm-yh-2UH" secondAttribute="bottom" constant="20" id="UmD-cE-0cB"/>
+                            <constraint firstItem="Brm-yh-2UH" firstAttribute="leading" secondItem="jaT-F9-lxb" secondAttribute="leading" id="fZg-8J-Rwp"/>
+                            <constraint firstItem="Muh-JP-w2H" firstAttribute="trailing" secondItem="epa-24-RwZ" secondAttribute="trailing" constant="20" id="gcf-JX-HEk"/>
+                            <constraint firstItem="eWL-97-afu" firstAttribute="trailing" secondItem="Muh-JP-w2H" secondAttribute="trailing" constant="-20" id="jcA-s4-Ecy"/>
+                            <constraint firstItem="Muh-JP-w2H" firstAttribute="trailing" secondItem="Brm-yh-2UH" secondAttribute="trailing" id="vyg-eh-J4q"/>
+                            <constraint firstItem="epa-24-RwZ" firstAttribute="top" secondItem="Muh-JP-w2H" secondAttribute="top" constant="20" id="xMN-uW-h2k"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Muh-JP-w2H"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Search" image="tournament" id="QDu-wo-XDX"/>
+                    <navigationItem key="navigationItem" id="FU0-Se-Ckx"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="statePickerView" destination="7ej-JW-YiX" id="tua-Fc-edU"/>
+                        <outlet property="stateTextField" destination="Svn-1a-rdk" id="4cE-ko-rWZ"/>
+                        <outlet property="tableView" destination="Brm-yh-2UH" id="gKL-FG-LEL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RuG-zg-PH7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pickerView contentMode="scaleToFill" id="7ej-JW-YiX">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <connections>
+                        <outlet property="dataSource" destination="djP-pa-7g1" id="XGA-iF-hVt"/>
+                        <outlet property="delegate" destination="djP-pa-7g1" id="noE-mH-ypj"/>
+                    </connections>
+                </pickerView>
+            </objects>
+            <point key="canvasLocation" x="1040.8" y="152.47376311844079"/>
+        </scene>
+        <!--TournamentDetail-->
+        <scene sceneID="V8g-ZE-P4s">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TournamentDetail" id="sFy-Jg-mtV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wew-3b-fqb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1768" y="130"/>
+        </scene>
+        <!--FilteredSearch-->
+        <scene sceneID="zQA-iq-hXy">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FilteredSearch" id="HyX-M1-nLR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IhI-zH-Wl1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1753" y="175"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="72v-UN-hkA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rtg-3T-bm6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EBj-Yw-2jY">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="mainColor"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" name="mainColor"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="djP-pa-7g1" kind="relationship" relationship="rootViewController" id="6YU-RO-szj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JfM-tT-I4y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="101.59999999999999" y="153.37331334332833"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ruggedSpotLogo" width="320" height="130"/>
+        <image name="tournament" width="24" height="24"/>
+        <namedColor name="mainColor">
+            <color red="0.20784313725490197" green="0.72549019607843135" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

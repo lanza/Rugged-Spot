@@ -1,14 +1,14 @@
 //
-//  Division.swift
+//  League.swift
 //  Rugged Spot
 //
-//  Created by Eric Lanza on 11/5/18.
-//  Copyright © 2018 ETLanza. All rights reserved.
+//  Created by Eric Lanza on 2/20/19.
+//  Copyright © 2019 ETLanza. All rights reserved.
 //
 
 import Foundation
 
-class Division: Selectable {
+class League {
     var name: String
     var isSelected: Bool
     
