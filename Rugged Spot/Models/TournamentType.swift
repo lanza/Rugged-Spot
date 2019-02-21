@@ -19,11 +19,15 @@ struct TournamentType: Codable {
         self.league = league
     }
     
-    init(dictionary: [String: Any]) {
-        let division = dictionary["division"] as! String
-         let style = dictionary["style"] as! String
-        let league = dictionary["league"] as! String
+    init?(dictionary: [String: Any]) {
+        let division = dictionary["division"] as? String
+        let style = dictionary["style"] as? String
+        let league = dictionary["league"] as? String
         
-        self.init(division: division, style: style, league: league)
+        if let d = division, let s = style, let l = league {
+            self.init(division: d, style: s, league: l)
+        } else {
+            return nil
+        }
     }
 }

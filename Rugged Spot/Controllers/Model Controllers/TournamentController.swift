@@ -35,6 +35,7 @@ class TournamentController {
                     let city = dict["city"] as? String
                     let url = dict["url"] as? String
                     let arrayOfTypes = dict["types"] as? [[String:Any]]
+                               
                     let types = arrayOfTypes.flatMap { return $0.map { TournamentType(dictionary: $0) } }
 
                     if let state = state, let city = city, let url = url, let types = types {
