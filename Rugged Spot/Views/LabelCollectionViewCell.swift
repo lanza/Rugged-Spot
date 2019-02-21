@@ -12,7 +12,7 @@ class LabelCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var defaultLabel: BorderedLabel!
     
-    var item: Selectable? {
+    var item: Selectable! {
         didSet {
             updateViews()
         }

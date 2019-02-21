@@ -187,13 +187,13 @@ extension FilteredSearchViewController: UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! LabelCollectionViewCell
         
-        cell.item?.toggleSelected()
+        cell.item!.toggleSelected()
         
         switch collectionView {
         case divisionCollectionView:
-            if selectedDivision?.name != cell.item?.name {
+            if selectedDivision?.name != cell.item!.name {
                 selectedDivision?.toggleSelected()
-                selectedDivision = cell.item as? Division
+                selectedDivision = (cell.item as! Division)
                 selectedDivisionIndexPath = indexPath
             } else {
                 selectedDivision = nil
@@ -201,9 +201,9 @@ extension FilteredSearchViewController: UICollectionViewDelegate, UICollectionVi
             }
             divisionCollectionView.reloadData()
         case styleCollectionView:
-            if selectedStyle?.name != cell.item?.name {
+            if selectedStyle?.name != cell.item!.name {
                 selectedStyle?.toggleSelected()
-                selectedStyle = cell.item as? Style
+                selectedStyle = (cell.item as! Style)
                 selectedStyleIndexPath = indexPath
             } else {
                 selectedStyle = nil
@@ -211,9 +211,9 @@ extension FilteredSearchViewController: UICollectionViewDelegate, UICollectionVi
             }
             styleCollectionView.reloadData()
         case leagueCollectionView:
-            if selectedLeague?.name != cell.item?.name {
+            if selectedLeague?.name != cell.item!.name {
                 selectedLeague?.toggleSelected()
-                selectedLeague = cell.item as? League
+                selectedLeague = (cell.item as! League)
             } else {
                 selectedLeague = nil
             }
